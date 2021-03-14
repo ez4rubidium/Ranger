@@ -44,7 +44,7 @@ def act(action):
         sleep(1)
         ultrasonic.beep(0)
     elif action == "forward":
-            motor.forward(50)
+            motor.forward(10)
     elif action == "stop":
             motor.stop()
     else:
