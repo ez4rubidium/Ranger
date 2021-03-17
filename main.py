@@ -8,7 +8,6 @@ import threading
 from time import sleep
 import ultrasonic
 import motor
-import RPi.GPIO as GPIO
 
 pi_camera = VideoCamera(flip=True)  # flip pi camera if upside down.
 
@@ -44,7 +43,13 @@ def act(action):
         sleep(1)
         ultrasonic.beep(0)
     elif action == "forward":
-            motor.forward(10)
+            motor.forward()
+    elif action == "backward":
+            motor.backward()
+    elif action == "left":
+            motor.left()
+    elif action == "right":
+            motor.right()
     elif action == "stop":
             motor.stop()
     else:
@@ -71,5 +76,4 @@ if __name__ == '__main__':
         app.run(host='0.0.0.0', port='8000', debug=False)
     # Reset by pressing CTRL + C
     except KeyboardInterrupt:
-        print(" stopped by User")
-        GPIO.cleanup()
+        print("~~Stopped by User~~")
