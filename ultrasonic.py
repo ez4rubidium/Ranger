@@ -17,6 +17,14 @@ def beep(status):
         print("alarm Off")
 
 
+def isClose(dist):
+    if dist <= obj_Dist:
+        print("obstacle is Close")
+        return True
+    else:
+        return False
+
+
 def alarm(dist):
     if dist <= obj_Dist:
         print("obstacle detected")

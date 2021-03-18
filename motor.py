@@ -1,5 +1,6 @@
 from gpiozero import Robot
 from time import sleep
+import ultrasonic
 
 import curses
 
@@ -8,20 +9,23 @@ import curses
 robot = Robot(left=(27, 17), right=("BOARD16", "BOARD15"))
 
 
-def forward(self, speed=0.25):
-    robot.forward(speed)
+def forward(speed=0.25):
+    if ultrasonic.isClose(ultrasonic.distance()):
+        stop()
+    else:
+        robot.forward(speed)
 
 
-def backward(self, speed=0.25):
-    robot.forward(speed)
+def backward(speed=0.25):
+    robot.backward(speed)
 
 
-def left(self, speed=0.25):
-    robot.forward(speed)
+def left(speed=0.25):
+    robot.left(speed)
 
 
-def right(self, speed=0.25):
-    robot.forward(speed)
+def right(speed=0.25):
+    robot.right(speed)
 
 
 def stop():

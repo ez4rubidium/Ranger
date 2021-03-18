@@ -44,16 +44,21 @@ def act(action):
         ultrasonic.beep(0)
     elif action == "forward":
             motor.forward()
+            print("forward")
     elif action == "backward":
             motor.backward()
+            print("backward")
     elif action == "left":
             motor.left()
+            print("left")
     elif action == "right":
             motor.right()
+            print("right")
     elif action == "stop":
             motor.stop()
+            print("stop")
     else:
-        print("action is not defined")
+        print("")
 
     return render_template('index.html')
 

@@ -144,15 +144,27 @@
         <div class="ignoreCall">
             <a id=decline class="but_def">
                 <button id="button">
-                    <i style="background: red; color: white;" class="fa fa-times fa-2x" aria-hidden="true"></i>
+                    <i style="background: red; color: white;" class="fa fa-eye-slash fa-2x" aria-hidden="true"></i>
                 </button>
                 <button id="beep" onclick="window.location.href='/beep';">
-                    <i style="background: red; color: white;" class="fa fa-times fa-2x" aria-hidden="true"></i>
+                    <i style="background: red; color: white;" class="fa fa-bullhorn fa-2x" aria-hidden="true"></i>
+                </button>
+                <button id="forward" onclick="window.location.href='/left';">
+                    <i style="background: red; color: white;" class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
+                </button>
+                <button id="forward" onclick="window.location.href='/backward';">
+                    <i style="background: red; color: white;" class="fa fa-arrow-down fa-2x" aria-hidden="true"></i>
                 </button>
                 <button id="forward" onclick="window.location.href='/forward';">
-                    <i style="background: red; color: white;" class="fa fa-times fa-2x" aria-hidden="true"></i>
+                    <i style="background: red; color: white;" class="fa fa-arrow-up fa-2x" aria-hidden="true"></i>
+                </button>
+                <button id="forward" onclick="window.location.href='/right';">
+                    <i style="background: red; color: white;" class="fa fa-arrow-right fa-2x" aria-hidden="true"></i>
                 </button>
                 <button id="stop" onclick="window.location.href='/stop';">
+                    <i style="background: red; color: white;" class="fa fa-stop-circle fa-2x" aria-hidden="true"></i>
+                </button>
+                <button id="stop" onclick="window.alert='In progress';">
                     <i style="background: red; color: white;" class="fa fa-times fa-2x" aria-hidden="true"></i>
                 </button>
             </a>
