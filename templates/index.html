@@ -118,6 +118,40 @@
             background-color: black;
         }
     </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            var demo = document.getElementById('demo');
+            var value = 0;
+            var space_bar = 32;
+            var enter_key = 13
+            var right_arrow = 39;
+            var left_arrow = 37;
+            var up_arrow = 38;
+            var down_arrow = 40;
+
+            window.onkeydown = function (k) {
+                if (k.keyCode === space_bar) {
+                    window.location.href = '/stop';
+
+                };
+                if (k.keyCode === right_arrow) {
+                    window.location.href = '/right';
+                };
+                if (k.keyCode === left_arrow) {
+                    window.location.href = '/left';
+                };
+                if (k.keyCode === up_arrow) {
+                    window.location.href = '/forward';
+                };
+                if (k.keyCode === down_arrow) {
+                    window.location.href = '/backward';
+                };
+                if (k.keyCode === enter_key) {
+                    alert("Enter_key!");
+                };
+            };
+        };
+    </script>
 </head>
 
 <title>Project - Stream & Control</title>
@@ -163,6 +197,9 @@
                 </button>
                 <button id="stop" onclick="window.location.href='/stop';">
                     <i style="background: red; color: white;" class="fa fa-stop-circle fa-2x" aria-hidden="true"></i>
+                </button>
+                <button id="stop" onclick="window.location.href='/';">
+                    <i style="background: red; color: white;" class="fa fa-times fa-2x" aria-hidden="true"></i>
                 </button>
                 <button id="stop" onclick="window.alert='In progress';">
                     <i style="background: red; color: white;" class="fa fa-times fa-2x" aria-hidden="true"></i>

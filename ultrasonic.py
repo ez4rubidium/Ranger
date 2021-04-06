@@ -1,3 +1,4 @@
+# import Libraries
 from gpiozero import DistanceSensor, Buzzer
 from time import sleep
 
@@ -5,16 +6,16 @@ import motor
 
 dSensor = DistanceSensor(echo="BOARD7", trigger="BOARD12")
 bz = Buzzer("BOARD29")
-obj_Dist = 10.0
+obj_Dist = 15.0
 
 
 def beep(status):
     if status == 1:
         bz.on()
-        print("alarm On")
+        #print("alarm On")
     else:
         bz.off()
-        print("alarm Off")
+        #print("alarm Off")
 
 
 def isClose(dist):
@@ -29,8 +30,8 @@ def alarm(dist):
     if dist <= obj_Dist:
         print("obstacle detected")
         # call alarm
-        beep(1)
         motor.stop()
+        beep(1)
     else:
         beep(0)
 
@@ -44,7 +45,7 @@ if __name__ == '__main__':
     try:
         while True:
             dist = distance()
-            print("Measured Distance = %.1f cm" % dist)
+            #print("Measured Distance = %.1f cm" % dist)
             alarm(dist)
             sleep(1)
 

@@ -4,15 +4,18 @@ import ultrasonic
 
 import curses
 
+isMoving = False
 
 # Broadcom (BCM) pin
 robot = Robot(left=(27, 17), right=("BOARD16", "BOARD15"))
 
 
 def forward(speed=0.25):
+    isMoving = False
     if ultrasonic.isClose(ultrasonic.distance()):
         stop()
     else:
+        isMoving = True
         robot.forward(speed)
 
 
@@ -20,15 +23,16 @@ def backward(speed=0.25):
     robot.backward(speed)
 
 
-def left(speed=0.25):
+def left(speed=0.15):
     robot.left(speed)
 
 
-def right(speed=0.25):
+def right(speed=0.15):
     robot.right(speed)
 
 
 def stop():
+    isMoving = False
     robot.stop()
 
 
