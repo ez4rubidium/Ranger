@@ -79,7 +79,6 @@
             outline: none;
         }
 
-        //CSS
         .camera-bg {
             position: fixed;
             top: 0;
@@ -109,6 +108,11 @@
             opacity: 0.5;
         }
 
+        .top-right-logo h3 {
+            color: red;
+            opacity: 1;
+        }
+
         body {
             margin: 0;
             padding: 0;
@@ -120,19 +124,17 @@
     </style>
     <script type="text/javascript">
         window.onload = function () {
-            var demo = document.getElementById('demo');
-            var value = 0;
             var space_bar = 32;
             var enter_key = 13
             var right_arrow = 39;
             var left_arrow = 37;
             var up_arrow = 38;
             var down_arrow = 40;
+            var b_key = 66;
 
             window.onkeydown = function (k) {
                 if (k.keyCode === space_bar) {
                     window.location.href = '/stop';
-
                 };
                 if (k.keyCode === right_arrow) {
                     window.location.href = '/right';
@@ -146,12 +148,16 @@
                 if (k.keyCode === down_arrow) {
                     window.location.href = '/backward';
                 };
+                if (k.keyCode === b_key) {
+                    window.location.href = '/beep';
+                };
                 if (k.keyCode === enter_key) {
                     alert("Enter_key!");
                 };
             };
         };
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <title>Project - Stream & Control</title>
@@ -168,8 +174,9 @@
     </div>
 
     <div class="top-right-logo">
-        <a></a>Raspberry Pi - Camera Stream </a>
-        <h2>Distance: {{dist}}</h2>
+        <a>Raspberry Pi - Camera Stream </a>
+        <h3 id="num" style="display:inline;"></h3>
+        <h5 id="time" style="display:inline;"></h5>
     </div>
 
 
@@ -199,37 +206,31 @@
                     <i style="background: red; color: white;" class="fa fa-stop-circle fa-2x" aria-hidden="true"></i>
                 </button>
                 <button id="stop" onclick="window.location.href='/';">
-                    <i style="background: red; color: white;" class="fa fa-times fa-2x" aria-hidden="true"></i>
+                    <i style="background: red; color: white;" class="fa fa-refresh fa-2x" aria-hidden="true"></i>
                 </button>
                 <button id="stop" onclick="window.alert='In progress';">
-                    <i style="background: red; color: white;" class="fa fa-times fa-2x" aria-hidden="true"></i>
+                    <i style="background: red; color: white;" class="fa fa-coffee fa-2x" aria-hidden="true"></i>
                 </button>
             </a>
         </div>
 
     </div>
 
-
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js">
-        $(document).ready(function () {
-            var socket = io();
-            socket.on('my response', function (msg) {
-                $('#log').append('<p>Received: ' + msg.data + '</p>');
-            });
-            $('form#emit').submit(function (event) {
-                socket.emit('my event', {
-                    data: $('#emit_data').val()
-                });
-                return false;
-            });
-            $('form#broadcast').submit(function (event) {
-                socket.emit('my broadcast event', {
-                    data: $('#broadcast_data').val()
-                });
-                return false;
-            });
-        });
+    <script>
+        setInterval(function () {
+            $.ajax({
+                url: '/update',
+                type: 'POST',
+                success: function (response) {
+                    console.log(response);
+                    $("#num").html(response["value"]);
+                    $("#time").html(response["time"]);
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            })
+        }, 1000);
     </script>
 
     <script type="text/javascript">
