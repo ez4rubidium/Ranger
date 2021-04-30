@@ -6,7 +6,7 @@ import motor
 
 dSensor = DistanceSensor(echo="BOARD7", trigger="BOARD12")
 bz = Buzzer("BOARD29")
-obj_Dist = 15.0
+obj_Dist = 25.0
 
 
 def beep(status):

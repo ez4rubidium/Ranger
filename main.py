@@ -26,7 +26,7 @@ def activate_job():
     def run_job():
         global value
         while True:
-            sleep(0.5)
+            sleep(0.50)
             uDist = ultrasonic.distance()
             ultrasonic.alarm(uDist)
             value = "Distance: " + "{:.2f}".format(uDist)

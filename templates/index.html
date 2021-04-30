@@ -131,6 +131,7 @@
             var up_arrow = 38;
             var down_arrow = 40;
             var b_key = 66;
+            var r_key = 82;
 
             window.onkeydown = function (k) {
                 if (k.keyCode === space_bar) {
@@ -158,11 +159,13 @@
         };
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src="{{ url_for('static', filename='jquery.min.js') }}"></script> -->
 </head>
 
 <title>Project - Stream & Control</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- <link rel="stylesheet" href="{{ url_for('static', filename='font_awesome.min.css') }}"> -->
 
 <body>
 
@@ -230,7 +233,7 @@
                     console.log(error);
                 }
             })
-        }, 1000);
+        }, 500);
     </script>
 
     <script type="text/javascript">

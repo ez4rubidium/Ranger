@@ -10,7 +10,7 @@ isMoving = False
 robot = Robot(left=(27, 17), right=("BOARD16", "BOARD15"))
 
 
-def forward(speed=0.25):
+def forward(speed=0.30):
     isMoving = False
     if ultrasonic.isClose(ultrasonic.distance()):
         stop()
@@ -19,15 +19,15 @@ def forward(speed=0.25):
         robot.forward(speed)
 
 
-def backward(speed=0.25):
+def backward(speed=0.30):
     robot.backward(speed)
 
 
-def left(speed=0.15):
+def left(speed=0.35):
     robot.left(speed)
 
 
-def right(speed=0.15):
+def right(speed=0.35):
     robot.right(speed)
 
 
